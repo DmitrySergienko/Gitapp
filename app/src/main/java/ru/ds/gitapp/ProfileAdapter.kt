@@ -26,6 +26,7 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
         profileImageView.setImageResource(profile.idImage)
         profileName.text = profile.name
         profileEmail.text = profile.email
+
         profileContentRoot.setOnClickListener {
             val i = Intent(context, ContentActivity::class.java).apply {
                 putExtra("Name", profileName.text.toString())
@@ -33,7 +34,6 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
                 putExtra("image", profile.idImage)
             }
             context.startActivity(i)
-
         }
     }
 }
