@@ -5,4 +5,7 @@
     <string name="Settings">Settings frag</string>
     <string name="About">About fragment</string>
     <string name="Main">Main fragment</string>
+    <string name="Name">Profile name</string>
+    <string name="Email">EMAIL</string>
+    <string name="profile">User</string>
 </resources>
