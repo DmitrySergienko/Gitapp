@@ -1,8 +1,9 @@
-package ru.ds.gitapp
+package ru.ds.gitapp.ui
 
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.UserContentFragmentBinding
 
 
@@ -17,7 +18,9 @@ class ContentActivity : AppCompatActivity() {
        with(binding){
            profileName.text = intent.getStringExtra("Name")
            profileEmail.text = intent.getStringExtra("email")
-           profileImageView.setImageResource(intent.getIntExtra("image",R.drawable.ic_profile_icon1))
+           profileImageView.setImageResource(intent.getIntExtra("image",
+               R.drawable.ic_profile_icon1
+           ))
        }
 
     }

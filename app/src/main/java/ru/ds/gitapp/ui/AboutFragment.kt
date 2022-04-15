@@ -1,4 +1,4 @@
-package ru.ds.gitapp
+package ru.ds.gitapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater

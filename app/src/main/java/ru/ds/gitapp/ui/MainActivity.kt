@@ -1,7 +1,8 @@
-package ru.ds.gitapp
+package ru.ds.gitapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

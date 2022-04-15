@@ -1,12 +1,13 @@
-package ru.ds.gitapp
+package ru.ds.gitapp.ui
 
-import android.content.res.TypedArray
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.ds.gitapp.ProfileAdapter
+import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.MainFragmentBinding
 import ru.ds.gitapp.domain.Profile
 
@@ -20,10 +21,10 @@ class MainFragment : Fragment() {
 
 
     val userList = listOf(
-        Profile("UserName1","email@example.com",R.drawable.ic_profile_icon1),
-        Profile("UserName2","email@example.com",R.drawable.ic_profile_icon2),
-        Profile("UserName3","email@example.com",R.drawable.ic_profile_icon3),
-        Profile("UserName4","email@example.com",R.drawable.ic_profile_icon4),
+        Profile("UserName1","email@example.com", R.drawable.ic_profile_icon1),
+        Profile("UserName2","email@example.com", R.drawable.ic_profile_icon2),
+        Profile("UserName3","email@example.com", R.drawable.ic_profile_icon3),
+        Profile("UserName4","email@example.com", R.drawable.ic_profile_icon4),
 
     )
 

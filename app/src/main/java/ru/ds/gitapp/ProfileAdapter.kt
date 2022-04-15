@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.databinding.ProfileContentBinding
 import ru.ds.gitapp.domain.Profile
+import ru.ds.gitapp.ui.ContentActivity
 
 class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerView.Adapter<ProfileAdapter.SectorsHolder>() {
 
