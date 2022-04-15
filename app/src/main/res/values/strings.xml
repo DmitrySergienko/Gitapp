@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Gitapp</string>
+    <string name="settings">Settings</string>
+    <string name="about">About</string>
+    <string name="Settings">Settings frag</string>
+    <string name="About">About fragment</string>
+    <string name="Main">Main fragment</string>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/bottom_main"
+        android:icon="@drawable/ic_baseline_domain_24"
+        app:tooltipText = "Description"
+        android:title="@string/about">
+    </item>
+
+    <item
+        android:id="@+id/bottom_settings"
+        android:icon="@drawable/ic_baseline_settings_24"
+        app:tooltipText = "Description"
+        android:title="@string/settings">
+    </item>
+
+    <item
+        android:id="@+id/bottom_about"
+        android:icon="@drawable/ic_baseline_airport_shuttle_24"
+        app:tooltipText = "Description"
+        android:title="@string/about">
+    </item>
+
+</menu>
