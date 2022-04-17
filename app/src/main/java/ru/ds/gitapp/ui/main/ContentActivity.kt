@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui
+package ru.ds.gitapp.ui.main
 
 
 import android.os.Bundle

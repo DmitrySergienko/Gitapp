@@ -1,9 +1,11 @@
-package ru.ds.gitapp.ui
+package ru.ds.gitapp.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ActivityMainBinding
+import ru.ds.gitapp.ui.about.AboutFragment
+import ru.ds.gitapp.ui.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 

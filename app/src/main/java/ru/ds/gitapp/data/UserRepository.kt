@@ -1,4 +1,4 @@
-package ru.ds.gitapp
+package ru.ds.gitapp.data
 
 import ru.ds.gitapp.domain.Profile
 

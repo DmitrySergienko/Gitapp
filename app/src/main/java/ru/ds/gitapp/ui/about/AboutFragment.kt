@@ -1,17 +1,16 @@
-package ru.ds.gitapp.ui
+package ru.ds.gitapp.ui.about
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import ru.ds.gitapp.databinding.SettingsFragmentBinding
+import ru.ds.gitapp.databinding.AboutFragmentBinding
 
 
-
-class SettingsFragment : Fragment() {
-    private var _binding: SettingsFragmentBinding? = null
-    private val binding: SettingsFragmentBinding
+class AboutFragment : Fragment() {
+    private var _binding: AboutFragmentBinding? = null
+    private val binding: AboutFragmentBinding
         get() = _binding!!
 
 
@@ -20,7 +19,7 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = SettingsFragmentBinding.inflate(inflater, container, false)
+        _binding = AboutFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onDestroy() {
@@ -30,6 +29,6 @@ class SettingsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = SettingsFragment()
+        fun newInstance() = AboutFragment()
     }
 }
