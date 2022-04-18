@@ -1,9 +1,9 @@
-package ru.ds.gitapp.data
+package ru.ds.gitapp.domain
 
 import ru.ds.gitapp.R
-import ru.ds.gitapp.domain.Profile
+import ru.ds.gitapp.model.Profile
 
-class UserRepositoryImp:UserRepository {
+class UserLocalRepositoryImp: UserLocalRepository {
 
     override fun getUserFromLocalStorage(): List<Profile> {
         val userList = listOf(
@@ -15,5 +15,6 @@ class UserRepositoryImp:UserRepository {
             )
         return userList
     }
+
 
 }

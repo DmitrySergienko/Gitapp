@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.settings
+package ru.ds.gitapp.ui.gitusers
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import ru.ds.gitapp.databinding.SettingsFragmentBinding
 
 
 
-class SettingsFragment : Fragment() {
+class GitUsersFragment : Fragment() {
     private var _binding: SettingsFragmentBinding? = null
     private val binding: SettingsFragmentBinding
         get() = _binding!!
@@ -30,6 +30,6 @@ class SettingsFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = SettingsFragment()
+        fun newInstance() = GitUsersFragment()
     }
 }

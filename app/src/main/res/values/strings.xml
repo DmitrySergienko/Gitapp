@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Gitapp</string>
-    <string name="settings">Settings</string>
+    <string name="settings">Git Users</string>
     <string name="about">About</string>
-    <string name="Settings">Settings frag</string>
+    <string name="Settings">Here will be list of users from GIT HUB</string>
     <string name="About">About fragment</string>
     <string name="Main">Main fragment</string>
     <string name="Name">Profile name</string>
     <string name="Email">EMAIL</string>
-    <string name="profile">User</string>
+    <string name="profile">Local Users</string>
 </resources>

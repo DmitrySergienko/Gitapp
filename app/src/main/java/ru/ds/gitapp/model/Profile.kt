@@ -1,4 +1,4 @@
-package ru.ds.gitapp.domain
+package ru.ds.gitapp.model
 
 data class Profile(
 

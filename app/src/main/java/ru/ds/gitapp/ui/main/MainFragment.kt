@@ -6,10 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.ds.gitapp.R
-import ru.ds.gitapp.data.UserRepositoryImp
 import ru.ds.gitapp.databinding.MainFragmentBinding
-import ru.ds.gitapp.domain.Profile
+import ru.ds.gitapp.domain.UserLocalRepositoryImp
+import ru.ds.gitapp.model.Profile
 
 
 class MainFragment : Fragment() {
@@ -20,7 +19,7 @@ class MainFragment : Fragment() {
     private var adapter: ProfileAdapter? = null
 
 
-   private val userLocalList = UserRepositoryImp()
+   private val userLocalList = UserLocalRepositoryImp()
 
 
     override fun onCreateView(
