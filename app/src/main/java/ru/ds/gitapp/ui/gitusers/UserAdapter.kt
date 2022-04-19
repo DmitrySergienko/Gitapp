@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ProfileContentBinding
-import ru.ds.gitapp.model.User
+import ru.ds.gitapp.model.GitUserEntity
 import ru.ds.gitapp.ui.main.ContentActivity
 
-class UserAdapter(listArray: ArrayList<User>, context: Context): RecyclerView.Adapter<UserAdapter.SectorsHolder>() {
+class UserAdapter(listArray: ArrayList<GitUserEntity>, context: Context): RecyclerView.Adapter<UserAdapter.SectorsHolder>() {
 
     //создаем список элементов
     private val sectorItemList = listArray
@@ -24,7 +24,7 @@ class UserAdapter(listArray: ArrayList<User>, context: Context): RecyclerView.Ad
         val binding = ProfileContentBinding.bind(item)
 
 
-    fun bind(user: User, context: Context) = with(binding) {
+    fun bind(user: GitUserEntity, context: Context) = with(binding) {
 
         profileName.text = user.name
 
@@ -52,7 +52,7 @@ class UserAdapter(listArray: ArrayList<User>, context: Context): RecyclerView.Ad
         return sectorItemList.size
     }
 
-    fun addItemSector(itemSector: User){
+    fun addItemSector(itemSector: GitUserEntity){
         sectorItemList.add(itemSector)
          // показывает адаптеру что данные изменились
     }

@@ -8,4 +8,5 @@
     <string name="Name">Profile name</string>
     <string name="Email">EMAIL</string>
     <string name="profile">Local Users</string>
+    <string name="User_name">ENTER</string>
 </resources>

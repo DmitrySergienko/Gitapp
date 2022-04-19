@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import ru.ds.gitapp.model.User
+import ru.ds.gitapp.model.GitUserEntity
 import ru.ds.gitapp.remote.ApiHolder
 
 class UserViewModel(
@@ -20,10 +20,10 @@ class UserViewModel(
     fun sendServerRequest() {
         liveData.postValue(GITUserState.Loading(null))
         userRemoteImp.getRetrofit().getUsers(
-            object : Callback<User> {
+            object : Callback<GitUserEntity> {
                 override fun onResponse(
-                    call: Call<User>,
-                    response: Response<User>
+                    call: Call<GitUserEntity>,
+                    response: Response<GitUserEntity>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         response.body()?.let {
@@ -32,7 +32,7 @@ class UserViewModel(
                     } else {
                                          }
                 }
-                override fun onFailure(call: Call<User>, t: Throwable) {
+                override fun onFailure(call: Call<GitUserEntity>, t: Throwable) {
                     //TODO 
                                     }
 
