@@ -12,16 +12,23 @@ class GITRepositoryViewModel(private val gitUserRepo: GitUserRep) : ViewModel() 
     private val _repo = MutableLiveData<List<GitUserEntity>>()
     val repo: LiveData<List<GitUserEntity>> = _repo
 
+    private val _inProgerss = MutableLiveData<Boolean>()
+    val inProgerss: LiveData<Boolean> = _inProgerss
+
     //для отписки
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     //метод - подписка на обновления с сервера
     fun onShowRepository(username: String) {
+        _inProgerss.postValue(true) // устанавливаем progress Bar
         compositeDisposable
             .add(gitUserRepo
                 .getUsers(username)
-                .subscribeBy { _repo.postValue(it)} // как только приходит результат отправляем его
-        )
+                .subscribeBy {
+                    _inProgerss.postValue(false) // ибираем progress Bar
+                    _repo.postValue(it)// как только приходит результат отправляем его
+                }
+            )
     }
 
     override fun onCleared() {

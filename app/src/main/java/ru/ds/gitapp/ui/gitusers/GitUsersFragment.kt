@@ -16,7 +16,11 @@ class AboutFragment : Fragment() {
     private val binding: AboutFragmentBinding
         get() = _binding!!
 
-    private val viewModel: GITRepositoryViewModel by viewModels { ReposViewModelFactory(requireActivity().app.gitUserRepo) }
+    private val viewModel: GITRepositoryViewModel by viewModels {
+        ReposViewModelFactory(
+            requireActivity().app.gitUserRepo
+        )
+    }
     private val adapter = GitAdapter()
 
 
@@ -54,8 +58,19 @@ class AboutFragment : Fragment() {
     }
 
     private fun initOutgoingEvents() {
-        viewModel.repo.observe(requireActivity()){
-           adapter.setData(it)
+        viewModel.repo.observe(requireActivity()) {
+            adapter.setData(it)
+        }
+        viewModel.inProgerss.observe(requireActivity()) {
+            if (it) {
+                binding.buttonEnterText.visibility = View.GONE
+                binding.enterEditText.visibility = View.GONE
+                binding.progressBarLayout.visibility = View.VISIBLE
+            } else {
+                binding.buttonEnterText.visibility = View.VISIBLE
+                binding.enterEditText.visibility = View.VISIBLE
+                binding.progressBarLayout.visibility = View.GONE
+            }
         }
     }
 
