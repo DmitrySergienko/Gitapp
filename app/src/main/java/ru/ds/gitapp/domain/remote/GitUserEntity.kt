@@ -1,9 +1,9 @@
-package ru.ds.gitapp.model
+package ru.ds.gitapp.domain.remote
 
 data class GitUserEntity(
 
     val name: String,
-    val email: String,
+    val id: String,
 
 
     // @SerializedName("html_url")

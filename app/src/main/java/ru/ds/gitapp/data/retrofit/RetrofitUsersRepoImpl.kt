@@ -1,4 +1,4 @@
-package ru.ds.gitapp.model.retrofit
+package ru.ds.gitapp.data.retrofit
 
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Call
@@ -6,8 +6,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.ds.gitapp.domain.GitUserRep
-import ru.ds.gitapp.model.GitUserEntity
+import ru.ds.gitapp.domain.remote.GitUserEntity
+import ru.ds.gitapp.domain.remote.GitUserRep
 
 //Именно эту имплементацию (retrofit) в App
 class RetrofitUsersRepoImpl : GitUserRep {

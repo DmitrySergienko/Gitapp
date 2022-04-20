@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.AboutFragmentBinding
-import ru.ds.gitapp.viewModel.GITRepositoryViewModel
 
 
 class AboutFragment : Fragment() {

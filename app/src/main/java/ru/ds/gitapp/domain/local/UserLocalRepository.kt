@@ -1,6 +1,4 @@
-package ru.ds.gitapp.domain
-
-import ru.ds.gitapp.model.Profile
+package ru.ds.gitapp.domain.local
 
 interface UserLocalRepository {
 

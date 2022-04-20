@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.databinding.ItemGitUserBinding
-import ru.ds.gitapp.model.GitUserEntity
+import ru.ds.gitapp.domain.remote.GitUserEntity
 
 
 class GitViewHolder(private val binding: ItemGitUserBinding) :
@@ -18,7 +18,7 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
     }
 
     fun bind(item: GitUserEntity) {
-        binding.itemGitRepoEmail.text = item.email
+        binding.itemGitRepoId.text = item.id
         binding.itemGitRepoName.text = item.name
     }
 }

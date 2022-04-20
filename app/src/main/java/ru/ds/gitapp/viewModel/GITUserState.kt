@@ -1,6 +1,6 @@
 package ru.ds.gitapp.viewModel
 
-import ru.ds.gitapp.model.GitUserEntity
+import ru.ds.gitapp.domain.remote.GitUserEntity
 
 
     //состояние нашего приложения

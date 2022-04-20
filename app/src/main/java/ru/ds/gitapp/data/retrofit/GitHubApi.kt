@@ -1,10 +1,10 @@
-package ru.ds.gitapp.model.retrofit
+package ru.ds.gitapp.data.retrofit
 
 
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
-import ru.ds.gitapp.model.GitUserEntity
+import ru.ds.gitapp.domain.remote.GitUserEntity
 
 
 interface GitHubApi {
