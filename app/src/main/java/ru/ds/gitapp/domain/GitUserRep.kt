@@ -3,5 +3,5 @@ import io.reactivex.rxjava3.core.Single
 import ru.ds.gitapp.model.GitUserEntity
 
 interface GitUserRep {
-    fun getUsers(userName: String): Single<List<GitUserEntity>>
+    fun getUsers(username: String): Single<List<GitUserEntity>>
 }

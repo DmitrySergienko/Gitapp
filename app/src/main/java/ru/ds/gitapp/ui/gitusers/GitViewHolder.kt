@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.about
+package ru.ds.gitapp.ui.gitusers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
     }
 
     fun bind(item: GitUserEntity) {
-        binding.itemGitRepoId.text = item.url
+        binding.itemGitRepoEmail.text = item.email
         binding.itemGitRepoName.text = item.name
     }
 }

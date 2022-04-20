@@ -1,11 +1,9 @@
 package ru.ds.gitapp.model
 
-import com.google.gson.annotations.SerializedName
-
 data class GitUserEntity(
 
     val name: String,
-    val url: String,
+    val email: String,
 
 
     // @SerializedName("html_url")

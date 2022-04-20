@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.about
+package ru.ds.gitapp.ui.gitusers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

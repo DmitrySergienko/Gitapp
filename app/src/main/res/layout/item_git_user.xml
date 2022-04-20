@@ -7,16 +7,18 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/item_git_repo_id"
+        android:id="@+id/item_git_repo_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        tools:text="email"/>
 
     <TextView
         android:id="@+id/item_git_repo_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="name"/>
 
 </LinearLayout>
