@@ -2,7 +2,7 @@ package ru.ds.gitapp.ui.gitusers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.ds.gitapp.domain.remote.GitUserRep
+import ru.ds.gitapp.data.remote.GitUserRep
 
 
 class ReposViewModelFactory(private val repo: GitUserRep) : ViewModelProvider.Factory {

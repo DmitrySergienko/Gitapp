@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ProfileContentBinding
-import ru.ds.gitapp.domain.local.Profile
+import ru.ds.gitapp.domain.local.ProfileEntity
 
-class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerView.Adapter<ProfileAdapter.SectorsHolder>() {
+class ProfileAdapter(listArray: ArrayList<ProfileEntity>, context: Context): RecyclerView.Adapter<ProfileAdapter.SectorsHolder>() {
 
     //создаем список элементов
     private val sectorItemList = listArray
@@ -23,7 +23,7 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
         val binding = ProfileContentBinding.bind(item)
 
 
-    fun bind(profile: Profile, context: Context) = with(binding) {
+    fun bind(profile: ProfileEntity, context: Context) = with(binding) {
         profileImageView.setImageResource(profile.idImage)
         profileName.text = profile.name
         profileEmail.text = profile.email
@@ -57,7 +57,7 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
         return sectorItemList.size
     }
 
-    fun addItemSector(itemSector: Profile){
+    fun addItemSector(itemSector: ProfileEntity){
         sectorItemList.add(itemSector)
          // показывает адаптеру что данные изменились
     }

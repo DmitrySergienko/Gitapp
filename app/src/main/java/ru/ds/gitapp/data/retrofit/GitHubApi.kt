@@ -4,7 +4,7 @@ package ru.ds.gitapp.data.retrofit
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
-import ru.ds.gitapp.domain.remote.GitUserEntity
+import ru.ds.gitapp.data.remote.GitUserEntity
 
 
 interface GitHubApi {

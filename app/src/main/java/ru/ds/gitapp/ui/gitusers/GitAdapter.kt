@@ -2,7 +2,7 @@ package ru.ds.gitapp.ui.gitusers
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.ds.gitapp.domain.remote.GitUserEntity
+import ru.ds.gitapp.data.remote.GitUserEntity
 
 class GitAdapter : RecyclerView.Adapter<GitViewHolder>() {
 

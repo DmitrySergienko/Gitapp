@@ -1,6 +1,6 @@
 package ru.ds.gitapp.domain.local
 
-data class Profile(
+data class ProfileEntity(
 
     val name: String,
     val email: String,

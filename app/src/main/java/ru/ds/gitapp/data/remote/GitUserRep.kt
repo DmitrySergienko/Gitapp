@@ -1,4 +1,4 @@
-package ru.ds.gitapp.domain.remote
+package ru.ds.gitapp.data.remote
 import io.reactivex.rxjava3.core.Single
 
 interface GitUserRep {

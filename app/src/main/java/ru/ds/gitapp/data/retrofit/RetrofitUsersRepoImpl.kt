@@ -6,8 +6,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.ds.gitapp.domain.remote.GitUserEntity
-import ru.ds.gitapp.domain.remote.GitUserRep
+import ru.ds.gitapp.data.remote.GitUserEntity
+import ru.ds.gitapp.data.remote.GitUserRep
 
 //Именно эту имплементацию (retrofit) в App
 class RetrofitUsersRepoImpl : GitUserRep {

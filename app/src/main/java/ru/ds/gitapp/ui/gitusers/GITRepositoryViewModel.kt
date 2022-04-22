@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.subscribeBy
-import ru.ds.gitapp.domain.remote.GitUserEntity
-import ru.ds.gitapp.domain.remote.GitUserRep
+import ru.ds.gitapp.data.remote.GitUserEntity
+import ru.ds.gitapp.data.remote.GitUserRep
 
 class GITRepositoryViewModel(private val gitUserRepo: GitUserRep) : ViewModel() {
     private val _repo = MutableLiveData<List<GitUserEntity>>()
