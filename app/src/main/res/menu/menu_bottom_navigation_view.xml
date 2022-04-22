@@ -4,22 +4,14 @@
     <item
         android:id="@+id/bottom_main"
         android:icon="@drawable/ic_baseline_people_alt_24"
-        app:tooltipText = "Description"
-        android:title="@string/profile">
-    </item>
+        android:title="@string/profile"
+        app:tooltipText="Description" />
 
-    <item
-        android:id="@+id/bottom_git_users"
-        android:icon="@drawable/ic_baseline_settings_24"
-        app:tooltipText = "Description"
-        android:title="@string/settings">
-    </item>
 
     <item
         android:id="@+id/bottom_about"
         android:icon="@drawable/ic_baseline_airport_shuttle_24"
-        app:tooltipText = "Description"
-        android:title="@string/about">
-    </item>
+        android:title="@string/settings"
+        app:tooltipText="Description" />
 
 </menu>

@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ActivityMainBinding
-import ru.ds.gitapp.ui.about.AboutFragment
-import ru.ds.gitapp.ui.gitusers.GitUsersFragment
+import ru.ds.gitapp.ui.gitusers.AboutFragment
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,11 +29,11 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.bottom_git_users -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, GitUsersFragment()).commit()
-                    true
-                }
+               //R.id.bottom_git_users -> {
+               //    supportFragmentManager.beginTransaction()
+               //        .replace(R.id.container, GitUsersFragment()).commit()
+               //    true
+               //}
                 R.id.bottom_about -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, AboutFragment()).commit()
