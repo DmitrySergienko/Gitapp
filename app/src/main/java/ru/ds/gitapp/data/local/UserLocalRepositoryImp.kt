@@ -1,8 +1,6 @@
 package ru.ds.gitapp.data.local
 
 import ru.ds.gitapp.R
-import ru.ds.gitapp.domain.local.ProfileEntity
-import ru.ds.gitapp.domain.local.UserLocalRepository
 
 class UserLocalRepositoryImp: UserLocalRepository {
 

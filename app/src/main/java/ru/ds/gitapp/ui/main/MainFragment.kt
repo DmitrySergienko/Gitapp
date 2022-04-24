@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.ds.gitapp.data.local.ProfileEntity
 import ru.ds.gitapp.data.local.UserLocalRepositoryImp
 import ru.ds.gitapp.databinding.MainFragmentBinding
-import ru.ds.gitapp.domain.local.ProfileEntity
 
 
 class MainFragment : Fragment() {

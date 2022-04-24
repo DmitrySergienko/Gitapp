@@ -1,4 +1,4 @@
-package ru.ds.gitapp.domain.local
+package ru.ds.gitapp.data.local
 
 interface UserLocalRepository {
 

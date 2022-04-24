@@ -9,7 +9,6 @@ data class GitUserEntity(
     @SerializedName("avatar_url")
     val avatarUrl: String
 
-
     // @SerializedName("html_url")
     // val htmlURL: String,
     // val login: String,

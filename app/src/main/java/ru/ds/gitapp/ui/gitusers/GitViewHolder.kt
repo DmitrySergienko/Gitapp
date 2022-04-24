@@ -3,7 +3,6 @@ package ru.ds.gitapp.ui.gitusers
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.ItemGitUserBinding
 
@@ -21,7 +20,7 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
     fun bind(item: GitUserEntity) {
         binding.itemGitRepoId.text = item.id
         binding.itemGitRepoName.text = item.name
-        binding.imageAvatar.load(item.avatarUrl)
+            // binding.imageAvatar.load(item.avatarUrl)
 
     }
 }
