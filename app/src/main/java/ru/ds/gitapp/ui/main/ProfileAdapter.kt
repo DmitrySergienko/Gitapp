@@ -28,13 +28,11 @@ class ProfileAdapter(listArray: ArrayList<ProfileEntity>, context: Context): Rec
         profileName.text = profile.name
         profileEmail.text = profile.email
 
-        profileName.text = profile.name
-
         profileContentRoot.setOnClickListener {
             val i = Intent(context, ContentActivity::class.java).apply {
                 putExtra("Name", profileName.text.toString())
                 putExtra("email", profileEmail.text.toString())
-                putExtra("image", profile.idImage)
+                putExtra("image", profile.avatarUrl)
             }
             context.startActivity(i)
         }
