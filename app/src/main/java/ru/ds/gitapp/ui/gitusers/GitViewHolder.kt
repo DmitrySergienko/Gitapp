@@ -18,12 +18,16 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
         }
     }
 
-    fun bind(item: GitUserEntity) {
+    fun bind(item: GitUserEntity) = with(binding) {
         //binding.itemGitRepoId.text = item.id
         //binding.itemGitRepoName.text = item.name
-        binding.itemGitRepoLogin.text = item.login
-        binding.itemGitRepoHtml.text = item.html_url
-            binding.avatarImageView.load(item.avatarUrl)
+        itemGitRepoLogin.text = item.login
+        itemGitRepoHtml.text = item.html_url
+        avatarImageView.load(item.avatarUrl)
+
+        itemGitUserRoot.setOnClickListener {
+
+        }
 
     }
 }

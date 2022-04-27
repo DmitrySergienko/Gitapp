@@ -34,5 +34,22 @@ class RetrofitUsersListRepoImpl : GitUserRep {
                 })
         }
     }
+    override fun getUsersRep(username: String): Single<List<GitUserEntity>> {
+        return Single.create { emitter ->
+            api.listRepos(username)
+                .enqueue(object : Callback<List<GitUserEntity>> {
+                    override fun onResponse(
+                        call: Call<List<GitUserEntity>>,
+                        response: Response<List<GitUserEntity>>
+                    ) {
+                        emitter.onSuccess(response.body())
+                    }
+
+                    override fun onFailure(call: Call<List<GitUserEntity>>, t: Throwable) {
+                        emitter.onError(t)
+                    }
+                })
+        }
+    }
 
 }

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import ru.ds.gitapp.R
 import ru.ds.gitapp.databinding.ActivityMainBinding
-import ru.ds.gitapp.ui.gitusers.AboutFragment
+import ru.ds.gitapp.ui.gitusers.GitUsersFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
 
-                R.id.bottom_main -> {
+                R.id.bottom_local -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.container, MainFragment()).commit()
                     true
@@ -34,15 +34,15 @@ class MainActivity : AppCompatActivity() {
                //        .replace(R.id.container, GitUsersFragment()).commit()
                //    true
                //}
-                R.id.bottom_about -> {
+                R.id.bottom_git -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.container, AboutFragment()).commit()
+                        .replace(R.id.container, GitUsersFragment()).commit()
                     true
                 }
                 else -> true
             }
         }
         //default view
-        binding.bottomNavigationView.selectedItemId = R.id.bottom_main
+        binding.bottomNavigationView.selectedItemId = R.id.bottom_git
     }
 }

@@ -11,10 +11,11 @@ import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.AboutFragmentBinding
 
 
-class AboutFragment : Fragment() {
+class GitUsersFragment : Fragment() {
     private var _binding: AboutFragmentBinding? = null
     private val binding: AboutFragmentBinding
         get() = _binding!!
+
 
     private val viewModel: GITRepositoryViewModel by viewModels {
         ReposViewModelFactory(
@@ -81,6 +82,6 @@ class AboutFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = AboutFragment()
+        fun newInstance() = GitUsersFragment()
     }
 }
