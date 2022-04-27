@@ -51,10 +51,10 @@ class AboutFragment : Fragment() {
 
 
     private fun initIncomingEvents() {
-        binding.buttonEnterText.setOnClickListener {
-            val userData = binding.enterEditText.text.toString()
-            viewModel.onShowRepository(userData)
-        }
+        val userData = ""//binding.enterEditText.text.toString()
+        viewModel.onShowRepository(userData)
+       //binding.buttonEnterText.setOnClickListener {}
+
     }
 
     private fun initOutgoingEvents() {
@@ -63,12 +63,12 @@ class AboutFragment : Fragment() {
         }
         viewModel.inProgerss.observe(requireActivity()) {
             if (it) {
-                binding.buttonEnterText.visibility = View.GONE
-                binding.enterEditText.visibility = View.GONE
+               //binding.buttonEnterText.visibility = View.GONE
+               //binding.enterEditText.visibility = View.GONE
                 binding.progressBarLayout.visibility = View.VISIBLE
             } else {
-                binding.buttonEnterText.visibility = View.VISIBLE
-                binding.enterEditText.visibility = View.VISIBLE
+                //binding.buttonEnterText.visibility = View.VISIBLE
+                //binding.enterEditText.visibility = View.VISIBLE
                 binding.progressBarLayout.visibility = View.GONE
             }
         }

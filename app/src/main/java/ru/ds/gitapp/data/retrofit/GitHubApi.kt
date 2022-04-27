@@ -10,4 +10,7 @@ import ru.ds.gitapp.data.remote.GitUserEntity
 interface GitHubApi {
     @GET("users/{user}/repos")
     fun listRepos(@Path("user") user: String?): Call<List<GitUserEntity>>
+
+    @GET("users")
+    fun accountList():Call<List<GitUserEntity>>
 }
