@@ -19,15 +19,15 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
         }
     }
 
-    fun bind(item: GitUserEntity) = with(binding) {
+    fun bind(item: GitUserEntity, listener: (GitUserEntity) -> Unit) = with(binding) {
         //binding.itemGitRepoId.text = item.id
         //binding.itemGitRepoName.text = item.name
         itemGitRepoLogin.text = item.login
         itemGitRepoHtml.text = item.html_url
         avatarImageView.load(item.avatarUrl)
         val avatar = avatarImageView.load(item.avatarUrl)
-        itemGitUserRoot.setOnClickListener {
-            TODO("Not yet implemented")
+        root.setOnClickListener {
+            listener.invoke(item)
         }
     }
 }

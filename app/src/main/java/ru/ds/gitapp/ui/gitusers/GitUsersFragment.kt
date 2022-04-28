@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,9 @@ class GitUsersFragment : Fragment() {
             requireActivity().app.gitUserRepo
         )
     }
-    private val adapter = GitAdapter()
+    private val adapter = GitAdapter{
+        Toast.makeText(requireContext(), "Hi ! ))", Toast.LENGTH_SHORT).show()
+    }
 
 
     override fun onCreateView(
@@ -55,7 +58,6 @@ class GitUsersFragment : Fragment() {
         val userData = ""//binding.enterEditText.text.toString()
         viewModel.onShowRepository(userData)
 
-
     }
 
     private fun initOutgoingEvents() {
@@ -64,12 +66,8 @@ class GitUsersFragment : Fragment() {
         }
         viewModel.inProgerss.observe(requireActivity()) {
             if (it) {
-               //binding.buttonEnterText.visibility = View.GONE
-               //binding.enterEditText.visibility = View.GONE
                 binding.progressBarLayout.visibility = View.VISIBLE
             } else {
-                //binding.buttonEnterText.visibility = View.VISIBLE
-                //binding.enterEditText.visibility = View.VISIBLE
                 binding.progressBarLayout.visibility = View.GONE
             }
         }
