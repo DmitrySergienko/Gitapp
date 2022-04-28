@@ -11,6 +11,7 @@ import ru.ds.gitapp.databinding.ItemGitUserBinding
 class GitViewHolder(private val binding: ItemGitUserBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
+
     companion object {
         fun create(parent: ViewGroup): GitViewHolder {
             val inflater = LayoutInflater.from(parent.context)
@@ -24,10 +25,9 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
         itemGitRepoLogin.text = item.login
         itemGitRepoHtml.text = item.html_url
         avatarImageView.load(item.avatarUrl)
-
+        val avatar = avatarImageView.load(item.avatarUrl)
         itemGitUserRoot.setOnClickListener {
-
+            TODO("Not yet implemented")
         }
-
     }
 }

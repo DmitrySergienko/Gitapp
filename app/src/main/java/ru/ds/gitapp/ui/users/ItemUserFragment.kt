@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.gitusers
+package ru.ds.gitapp.ui.users
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,21 +8,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.ds.gitapp.app
-import ru.ds.gitapp.databinding.AboutFragmentBinding
+import ru.ds.gitapp.databinding.UserListFragmentBinding
 
 
-class GitUsersFragment : Fragment() {
-    private var _binding: AboutFragmentBinding? = null
-    private val binding: AboutFragmentBinding
+class ItemUserFragment : Fragment() {
+    private var _binding: UserListFragmentBinding? = null
+    private val binding: UserListFragmentBinding
         get() = _binding!!
 
 
-    private val viewModel: GITRepositoryViewModel by viewModels {
-        ReposViewModelFactory(
+    private val viewModel: UserRepositoryViewModel by viewModels {
+        ReposUserViewModelFactory(
             requireActivity().app.gitUserRepo
         )
     }
-    private val adapter = GitAdapter()
+    private val adapter = UserAdapter()
 
 
     override fun onCreateView(
@@ -30,7 +30,7 @@ class GitUsersFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = AboutFragmentBinding.inflate(inflater, container, false)
+        _binding = UserListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -44,18 +44,19 @@ class GitUsersFragment : Fragment() {
     }
 
     private fun recyclerView() {
-        binding.recycleView.layoutManager = LinearLayoutManager(requireContext())
+        binding.recycleUserView.layoutManager = LinearLayoutManager(requireContext())
         adapter.setHasStableIds(true)
-        binding.recycleView.adapter = adapter
+        binding.recycleUserView.adapter = adapter
 
     }
 
 
     private fun initIncomingEvents() {
-        val userData = ""//binding.enterEditText.text.toString()
-        viewModel.onShowRepository(userData)
 
-
+        binding.buttonEnterText.setOnClickListener {
+            val userData = binding.enterEditText.text.toString()
+            viewModel.onShowUserRepository(userData)
+        }
     }
 
     private fun initOutgoingEvents() {
@@ -64,12 +65,8 @@ class GitUsersFragment : Fragment() {
         }
         viewModel.inProgerss.observe(requireActivity()) {
             if (it) {
-               //binding.buttonEnterText.visibility = View.GONE
-               //binding.enterEditText.visibility = View.GONE
                 binding.progressBarLayout.visibility = View.VISIBLE
             } else {
-                //binding.buttonEnterText.visibility = View.VISIBLE
-                //binding.enterEditText.visibility = View.VISIBLE
                 binding.progressBarLayout.visibility = View.GONE
             }
         }
@@ -82,6 +79,6 @@ class GitUsersFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = GitUsersFragment()
+        fun newInstance() = ItemUserFragment()
     }
 }
