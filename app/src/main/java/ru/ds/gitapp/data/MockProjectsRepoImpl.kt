@@ -1,10 +1,6 @@
 package ru.ds.gitapp.data
 
-import io.reactivex.rxjava3.core.Single
-import ru.ds.gitapp.data.remote.GitUserEntity
-import ru.ds.gitapp.data.remote.GitUserRep
-
-
+/*
 class MockProjectsRepoImpl : GitUserRep {
 
     override fun getUsers(username: String): Single<List<GitUserEntity>> {
@@ -30,4 +26,6 @@ class MockProjectsRepoImpl : GitUserRep {
         return Single.just(mockList)
 
     }
-}
+
+
+*/

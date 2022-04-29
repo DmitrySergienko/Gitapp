@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import coil.load
 import ru.ds.gitapp.app
+import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.UserListFragmentBinding
 
 
@@ -16,6 +18,47 @@ class ItemUserFragment : Fragment() {
     private val binding: UserListFragmentBinding
         get() = _binding!!
 
+    companion object {
+        private const val GIT_DATA_KEY = "GIT_DATA_KEY"
+
+        @JvmStatic
+        fun newInstance(gitUserEntity: GitUserEntity): ItemUserFragment {
+
+            //сохраняем аргументы фрагмента
+
+            val fragment = ItemUserFragment()
+            val args = Bundle()
+            args.putParcelable(GIT_DATA_KEY, gitUserEntity)
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    //метод для получения аргумента
+    fun getNameFromArguments(): GitUserEntity {
+        return arguments?.getParcelable(GIT_DATA_KEY)
+            ?: throw IllegalStateException("No argument Name")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        initData() //заполняем данными user_list_fragment
+        initOutgoingEvents() //метод отправляет event
+        initIncomingEvents() //метод получает event
+        recyclerView() //отображение данных в recycler View
+
+    }
+
+    private fun initData() {
+        var gitName = getNameFromArguments()
+        binding.enterEditText.setText(gitName.login)
+        binding.imageView.load(gitName.avatarUrl)
+        binding.userLogin.text = "LOGIN: ${gitName.login}"
+        binding.userId.text = "ID: ${gitName.id}"
+
+    }
 
     private val viewModel: UserRepositoryViewModel by viewModels {
         ReposUserViewModelFactory(
@@ -34,14 +77,7 @@ class ItemUserFragment : Fragment() {
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        initOutgoingEvents() //метод отправляет event
-        initIncomingEvents() //метод получает event
-        recyclerView() //отображение данных в recycler View
-
-    }
 
     private fun recyclerView() {
         binding.recycleUserView.layoutManager = LinearLayoutManager(requireContext())
@@ -52,11 +88,9 @@ class ItemUserFragment : Fragment() {
 
 
     private fun initIncomingEvents() {
+        val userData = binding.enterEditText.text.toString()
+        viewModel.onShowUserRepository(userData)
 
-        binding.buttonEnterText.setOnClickListener {
-            val userData = binding.enterEditText.text.toString()
-            viewModel.onShowUserRepository(userData)
-        }
     }
 
     private fun initOutgoingEvents() {
@@ -77,8 +111,5 @@ class ItemUserFragment : Fragment() {
         _binding = null
     }
 
-    companion object {
-        @JvmStatic
-        fun newInstance() = ItemUserFragment()
-    }
+
 }

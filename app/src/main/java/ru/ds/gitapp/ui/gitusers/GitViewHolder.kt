@@ -19,9 +19,10 @@ class GitViewHolder(private val binding: ItemGitUserBinding) :
         }
     }
 
+    //для открытия другого фрагмента обработку клика необходимо вынести в фрагмент
+    //для этого указываем в качестве аргумента Entity, далее идем в адаптер для настройки
     fun bind(item: GitUserEntity, listener: (GitUserEntity) -> Unit) = with(binding) {
-        //binding.itemGitRepoId.text = item.id
-        //binding.itemGitRepoName.text = item.name
+
         itemGitRepoLogin.text = item.login
         itemGitRepoHtml.text = item.html_url
         avatarImageView.load(item.avatarUrl)

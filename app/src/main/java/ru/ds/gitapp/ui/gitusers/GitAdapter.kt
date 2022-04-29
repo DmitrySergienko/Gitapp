@@ -4,6 +4,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.data.remote.GitUserEntity
 
+
+// настраиваем адаптер для открытия фрагмента
+// создаем itemClickCallback в конструкторе (тоесть мы его перекинем в конструктор как аргумент)
+
 class GitAdapter(private val itemClickCallback: (GitUserEntity) -> Unit) : RecyclerView.Adapter<GitViewHolder>() {
 
     private var data: List<GitUserEntity> = emptyList()
@@ -18,9 +22,6 @@ class GitAdapter(private val itemClickCallback: (GitUserEntity) -> Unit) : Recyc
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GitViewHolder {
         return GitViewHolder.create(parent)
     }
-
-    // для передачи listener создаем его в конструкторе (тоесть мы его перекинем в конструктор как аргумент)
-   // var itemClickCallback: (GitUserEntity) -> Unit
 
     // получаем отдельный элемент
     override fun onBindViewHolder(holder: GitViewHolder, position: Int) {

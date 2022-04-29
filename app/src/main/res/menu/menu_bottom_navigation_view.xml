@@ -8,14 +8,8 @@
         app:tooltipText="Description" />
 
     <item
-        android:id="@+id/repo_git"
-        android:icon="@drawable/ic_baseline_airport_shuttle_24"
-        android:title="@string/repo"
-        app:tooltipText="Description" />
-
-    <item
         android:id="@+id/bottom_git"
-        android:icon="@drawable/ic_baseline_airport_shuttle_24"
+        android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/settings"
         app:tooltipText="Description" />
 

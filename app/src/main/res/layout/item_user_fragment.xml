@@ -1,52 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:id="@+id/profile_content_root"
     android:layout_width="match_parent"
-    android:layout_height="300dp">
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guide_line"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
-
-
-    <ImageView
-        android:id="@+id/item_image_view"
-        android:layout_width="@dimen/avatar_size"
-        android:layout_height="@dimen/avatar_size"
-        app:layout_constraintBottom_toTopOf="@+id/profile_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/profile_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/Margin_start"
         android:shadowColor="@color/white"
         android:text="@string/Name"
-        android:textStyle="bold"
-        android:layout_marginStart="@dimen/Margin_start"
         android:textAlignment="textStart"
-        app:layout_constraintBottom_toBottomOf="@+id/guide_line"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/guide_line" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/profile_html"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:shadowColor="@color/white"
+        android:layout_marginBottom="@dimen/Margin_start"
         android:layout_marginStart="@dimen/Margin_start"
-        android:text="@string/Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/item_image_view"
-        app:layout_constraintTop_toBottomOf="@+id/profile_name" />
+        android:shadowColor="@color/white"
+        android:text="@string/Email" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

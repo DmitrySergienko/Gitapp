@@ -1,7 +1,10 @@
 package ru.ds.gitapp.data.remote
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class GitUserEntity(
 
     val name: String,
@@ -9,10 +12,14 @@ data class GitUserEntity(
     @SerializedName("avatar_url")
     val avatarUrl: String,
     val login: String,
-    var html_url: String
+    var html_url: String,
+    val nodeID: String,
+    val gravatarID: String,
+    val followersURL: String,
+    val gistsURL: String,
+    val subscriptionsURL: String,
+    val reposURL: String,
+    val email: String,
 
-    // @SerializedName("html_url")
-    // val htmlURL: String,
-    // val login: String,
 
-)
+): Parcelable

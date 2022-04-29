@@ -3,7 +3,6 @@ package ru.ds.gitapp.ui.users
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.ItemUserFragmentBinding
 
@@ -23,8 +22,6 @@ class UserViewHolder(private val binding: ItemUserFragmentBinding) :
 
         profileName.text = item.name
         profileHtml.text = item.html_url
-        itemImageView.load(item.avatarUrl)
-
 
     }
 }

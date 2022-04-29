@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.ds.gitapp.R
 import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.AboutFragmentBinding
+import ru.ds.gitapp.ui.users.ItemUserFragment
 
 
 class GitUsersFragment : Fragment() {
@@ -23,8 +24,16 @@ class GitUsersFragment : Fragment() {
             requireActivity().app.gitUserRepo
         )
     }
-    private val adapter = GitAdapter{
-        Toast.makeText(requireContext(), "Hi ! ))", Toast.LENGTH_SHORT).show()
+
+    // тут прописываем агрумент itemClickCallback для адаптера (слушатель нажатия элемента списка)
+    private val adapter = GitAdapter {
+        // Toast.makeText(requireContext(), it.html_url, Toast.LENGTH_SHORT).show()
+
+        requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, ItemUserFragment.newInstance(it))
+            .addToBackStack("")
+            .commit()
     }
 
 

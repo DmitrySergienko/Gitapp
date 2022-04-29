@@ -7,8 +7,9 @@
     <string name="About">About fragment</string>
     <string name="Main">Main fragment</string>
     <string name="Name">Profile name</string>
-    <string name="Email">EMAIL</string>
+    <string name="Html">HTML</string>
     <string name="profile">Local Users</string>
     <string name="User_name">ENTER</string>
     <string name="any">JakeWharton</string>
+    <string name="Email">html</string>
 </resources>
