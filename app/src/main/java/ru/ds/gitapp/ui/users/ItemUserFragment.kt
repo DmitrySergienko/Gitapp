@@ -24,7 +24,7 @@ class ItemUserFragment : Fragment() {
         @JvmStatic
         fun newInstance(gitUserEntity: GitUserEntity): ItemUserFragment {
 
-            //сохраняем аргументы фрагмента
+            //сохраняем аргументы фрагмента в arguments
 
             val fragment = ItemUserFragment()
             val args = Bundle()
@@ -35,14 +35,13 @@ class ItemUserFragment : Fragment() {
     }
 
     //метод для получения аргумента
-    fun getNameFromArguments(): GitUserEntity {
+    fun getDataFromArguments(): GitUserEntity {
         return arguments?.getParcelable(GIT_DATA_KEY)
             ?: throw IllegalStateException("No argument Name")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         initData() //заполняем данными user_list_fragment
         initOutgoingEvents() //метод отправляет event
@@ -52,7 +51,7 @@ class ItemUserFragment : Fragment() {
     }
 
     private fun initData() {
-        var gitName = getNameFromArguments()
+        var gitName = getDataFromArguments()
         binding.enterEditText.setText(gitName.login)
         binding.imageView.load(gitName.avatarUrl)
         binding.userLogin.text = "LOGIN: ${gitName.login}"
@@ -67,7 +66,6 @@ class ItemUserFragment : Fragment() {
     }
     private val adapter = UserAdapter()
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -76,8 +74,6 @@ class ItemUserFragment : Fragment() {
         _binding = UserListFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
-
-
 
     private fun recyclerView() {
         binding.recycleUserView.layoutManager = LinearLayoutManager(requireContext())
