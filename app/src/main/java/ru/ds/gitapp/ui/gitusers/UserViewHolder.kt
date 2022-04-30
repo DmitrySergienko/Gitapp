@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.users
+package ru.ds.gitapp.ui.gitusers
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

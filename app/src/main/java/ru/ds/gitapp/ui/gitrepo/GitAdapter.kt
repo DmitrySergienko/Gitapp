@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.gitusers
+package ru.ds.gitapp.ui.gitrepo
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

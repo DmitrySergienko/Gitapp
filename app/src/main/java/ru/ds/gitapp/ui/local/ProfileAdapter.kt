@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.main
+package ru.ds.gitapp.ui.local
 
 import android.content.Context
 import android.content.Intent

@@ -13,7 +13,7 @@
         android:name=".App"
         android:theme="@style/MyBlueOriginalTheme">
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.main.ContentActivity"
+            android:name=".ui.local.ContentActivity"
             android:exported="true">
         </activity>
 

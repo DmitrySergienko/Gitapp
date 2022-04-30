@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.main
+package ru.ds.gitapp.ui
 
 
 import android.os.Bundle
@@ -7,8 +7,9 @@ import androidx.fragment.app.Fragment
 import ru.ds.gitapp.R
 import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.ActivityMainBinding
-import ru.ds.gitapp.ui.gitusers.GitUsersFragment
-import ru.ds.gitapp.ui.users.ItemUserFragment
+import ru.ds.gitapp.ui.gitrepo.GitUsersFragment
+import ru.ds.gitapp.ui.gitusers.ItemUserFragment
+import ru.ds.gitapp.ui.local.MainFragment
 
 //для получения вложенного фрагмена через контракт
     // наследуемся от GitUsersFragment.Controller
