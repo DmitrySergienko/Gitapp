@@ -10,12 +10,10 @@ import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.data.remote.GitUserRep
 
 //Именно эту имплементацию (retrofit) в App
-class RetrofitUsersRepoImpl : GitUserRep {
-    private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.github.com/")
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-    private val api: GitHubApi = retrofit.create(GitHubApi::class.java)
+class RetrofitUsersRepoImpl(
+private val api:GitHubApi
+) : GitUserRep {
+
 
     override fun getUsers(username: String): Single<List<GitUserEntity>> {
         return Single.create { emitter ->
