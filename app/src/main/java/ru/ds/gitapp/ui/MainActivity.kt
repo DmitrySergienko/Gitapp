@@ -36,17 +36,19 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, LocalUserFragment()).commit()
+                        .replace(R.id.container, LocalUserFragment())
+                        .commit()
                     true
                 }
 
                 R.id.bottom_git -> {
-                    var gitUsersFragment: Fragment = RepositoryFragment()
-                    //gitUsersFragment.retainInstance = true //команда помогает не разрушать данный фрагмент
+                    var repositoryFragment: Fragment = RepositoryFragment()
+                    //repositoryFragment.retainInstance = true //команда помогает не разрушать данный фрагмент
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, RepositoryFragment()).commit()
+                        .replace(R.id.container, repositoryFragment)
+                        .commit()
 
                     true
                 }
@@ -64,7 +66,7 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
        supportFragmentManager
            .beginTransaction()
            .addToBackStack(null) //для возвращения на предидущий фрагмент
-           .replace(binding.container.id, UserFragment.newInstance(user))
+           .replace(R.id.container, UserFragment.newInstance(user))
            .commit()
 
    }
