@@ -1,7 +1,7 @@
 package ru.ds.gitapp.data.local
 
 
-data class ProfileEntity(
+data class LocalUserEntity(
 
     val name: String,
     val email: String,

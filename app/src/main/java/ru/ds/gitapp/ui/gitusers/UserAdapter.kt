@@ -2,14 +2,14 @@ package ru.ds.gitapp.ui.gitusers
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.ds.gitapp.data.remote.GitUserEntity
+import ru.ds.gitapp.domain.GitHubEntity
 
 class UserAdapter : RecyclerView.Adapter<UserViewHolder>() {
 
-    private var data: List<GitUserEntity> = emptyList()
+    private var data: List<GitHubEntity> = emptyList()
 
     //метод настраивает данные
-    fun setData(repos: List<GitUserEntity>) {
+    fun setData(repos: List<GitHubEntity>) {
         data = repos
         notifyDataSetChanged()
     }
@@ -24,7 +24,7 @@ class UserAdapter : RecyclerView.Adapter<UserViewHolder>() {
         holder.bind(getItem(position))
     }
 
-    private fun getItem(pos: Int): GitUserEntity = data[pos]
+    private fun getItem(pos: Int): GitHubEntity = data[pos]
 
     override fun getItemCount(): Int = data.size
 }

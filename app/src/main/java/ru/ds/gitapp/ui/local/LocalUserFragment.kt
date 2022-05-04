@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.ds.gitapp.data.local.ProfileEntity
-import ru.ds.gitapp.data.local.UserLocalRepositoryImp
+import ru.ds.gitapp.data.local.LocalUserEntity
+import ru.ds.gitapp.data.local.LocalUserRepositoryImp
 import ru.ds.gitapp.databinding.MainFragmentBinding
 
 
-class MainFragment : Fragment() {
+class LocalUserFragment : Fragment() {
     private var _binding: MainFragmentBinding? = null
     private val binding: MainFragmentBinding
         get() = _binding!!
 
-    private var adapter: ProfileAdapter? = null
+    private var adapter: LocalUserAdapter? = null
 
 
-   private val userLocalList = UserLocalRepositoryImp()
+   private val userLocalList = LocalUserRepositoryImp()
 
 
     override fun onCreateView(
@@ -39,12 +39,12 @@ class MainFragment : Fragment() {
     private fun init() {
         binding.apply {
 
-            val list = ArrayList<ProfileEntity>()
+            val list = ArrayList<LocalUserEntity>()
             list.addAll(userLocalList.getUserFromLocalStorage())
 
             recycleView.hasFixedSize()
             recycleView.layoutManager = LinearLayoutManager(requireContext())
-            adapter = ProfileAdapter(list, requireContext())
+            adapter = LocalUserAdapter(list, requireContext())
             recycleView.adapter = adapter
         }
     }
@@ -56,6 +56,6 @@ class MainFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = MainFragment()
+        fun newInstance() = LocalUserFragment()
     }
 }

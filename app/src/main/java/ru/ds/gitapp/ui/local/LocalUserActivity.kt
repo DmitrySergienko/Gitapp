@@ -7,7 +7,7 @@ import coil.load
 import ru.ds.gitapp.databinding.UserContentFragmentBinding
 
 
-class ContentActivity : AppCompatActivity() {
+class LocalUserActivity : AppCompatActivity() {
     lateinit var binding: UserContentFragmentBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

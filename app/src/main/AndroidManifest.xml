@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.local.ContentActivity"
+            android:name=".ui.local.LocalUserActivity"
             android:exported="true">
         </activity>
 
