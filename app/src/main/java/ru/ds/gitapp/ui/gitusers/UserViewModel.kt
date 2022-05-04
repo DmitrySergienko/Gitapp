@@ -1,16 +1,16 @@
-package ru.ds.gitapp.ui.gitrepo
+package ru.ds.gitapp.ui.gitusers
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.kotlin.subscribeBy
-import ru.ds.gitapp.data.remote.GitUserEntity
-import ru.ds.gitapp.data.remote.GitUserRep
+import ru.ds.gitapp.domain.GitHubEntity
+import ru.ds.gitapp.domain.GitHubRep
 
-class GITRepositoryViewModel(private val gitUserRep: GitUserRep) : ViewModel() {
-    private val _repo = MutableLiveData<List<GitUserEntity>>()
-    val repo: LiveData<List<GitUserEntity>> = _repo
+class UserViewModel(private val user: GitHubRep) : ViewModel() {
+    private val _repo = MutableLiveData<List<GitHubEntity>>()
+    val repo: LiveData<List<GitHubEntity>> = _repo
 
     private val _inProgerss = MutableLiveData<Boolean>()
     val inProgerss: LiveData<Boolean> = _inProgerss
@@ -19,19 +19,17 @@ class GITRepositoryViewModel(private val gitUserRep: GitUserRep) : ViewModel() {
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
     //метод - подписка на обновления с сервера
-    fun onShowRepository(username: String) {
+    fun onShowUserRepository(username: String) {
         _inProgerss.postValue(true) // устанавливаем progress Bar
         compositeDisposable
-            .add(gitUserRep
-                .getUsers(username)
+            .add(user
+                .getRepOfUser(username)
                 .subscribeBy {
                     _inProgerss.postValue(false) // убираем progress Bar
                     _repo.postValue(it)// как только приходит результат отправляем его
                 }
             )
     }
-
-
 
     override fun onCleared() {
         compositeDisposable.clear()

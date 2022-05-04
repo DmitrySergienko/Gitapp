@@ -1,4 +1,4 @@
-package ru.ds.gitapp.data
+package ru.ds.gitapp.data.fake
 
 /*
 class MockProjectsRepoImpl : GitUserRep {

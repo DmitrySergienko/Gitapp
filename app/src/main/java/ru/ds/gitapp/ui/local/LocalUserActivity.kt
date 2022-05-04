@@ -4,14 +4,15 @@ package ru.ds.gitapp.ui.local
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import coil.load
-import ru.ds.gitapp.databinding.UserContentFragmentBinding
+import ru.ds.gitapp.databinding.LocalUserActivityBinding
 
 
-class ContentActivity : AppCompatActivity() {
-    lateinit var binding: UserContentFragmentBinding
+
+class LocalUserActivity : AppCompatActivity() {
+    lateinit var binding: LocalUserActivityBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = UserContentFragmentBinding.inflate(layoutInflater)
+        binding = LocalUserActivityBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 

@@ -6,38 +6,34 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.ds.gitapp.app
-import ru.ds.gitapp.data.remote.GitUserEntity
-import ru.ds.gitapp.databinding.AboutFragmentBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.ds.gitapp.databinding.RepositoryFragmentBinding
+import ru.ds.gitapp.domain.GitHubEntity
 
 
 //для использования данного фрагмента в любом другом активити используя контракт необходимо
 // наследоваться от Controller
 
 
-class GitUsersFragment : Fragment() {
-    private var _binding: AboutFragmentBinding? = null
-    private val binding: AboutFragmentBinding
+class RepositoryFragment : Fragment() {
+    private var _binding: RepositoryFragmentBinding? = null
+    private val binding: RepositoryFragmentBinding
         get() = _binding!!
 
 
-    private val viewModel: GITRepositoryViewModel by viewModels {
-        ReposViewModelFactory(
-            requireActivity().app.gitUserRepo
-        )
-    }
+    private val viewModel: RepositoryViewModel by viewModel()
+
 
     // тут прописываем агрумент itemClickCallback для адаптера
     // (слушатель нажатия элемента списка)
-    private val adapter = GitAdapter {
+    private val adapter = RepositoryAdapter {
         // Toast.makeText(requireContext(), it.html_url, Toast.LENGTH_SHORT).show()
         controller.onShowUserDetails(it)
 
     /*  requireActivity().supportFragmentManager
             .beginTransaction()
-            .replace(R.id.container, ItemUserFragment.newInstance(it))
+            .replace(R.id.container, UserFragment.newInstance(it))
             .addToBackStack("")
             .commit()
        */
@@ -45,7 +41,7 @@ class GitUsersFragment : Fragment() {
 
     //интерфейс для передачи данных из фрагмента в активити через контракт
     interface Controller {
-        fun onShowUserDetails(user: GitUserEntity)
+        fun onShowUserDetails(user: GitHubEntity)
     }
     //метод для присоединения активити
     override fun onAttach(context: Context) {
@@ -61,7 +57,7 @@ class GitUsersFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = AboutFragmentBinding.inflate(inflater, container, false)
+        _binding = RepositoryFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -107,6 +103,6 @@ class GitUsersFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = GitUsersFragment()
+        fun newInstance() = RepositoryFragment()
     }
 }

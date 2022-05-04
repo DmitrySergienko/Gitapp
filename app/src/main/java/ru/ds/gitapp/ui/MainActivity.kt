@@ -5,16 +5,16 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import ru.ds.gitapp.R
-import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.ActivityMainBinding
-import ru.ds.gitapp.ui.gitrepo.GitUsersFragment
-import ru.ds.gitapp.ui.gitusers.ItemUserFragment
-import ru.ds.gitapp.ui.local.MainFragment
+import ru.ds.gitapp.domain.GitHubEntity
+import ru.ds.gitapp.ui.gitrepo.RepositoryFragment
+import ru.ds.gitapp.ui.gitusers.UserFragment
+import ru.ds.gitapp.ui.local.LocalUserFragment
 
 //для получения вложенного фрагмена через контракт
     // наследуемся от GitUsersFragment.Controller
 
-class MainActivity : AppCompatActivity(), GitUsersFragment.Controller {
+class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
 
     lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,17 +36,17 @@ class MainActivity : AppCompatActivity(), GitUsersFragment.Controller {
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, MainFragment()).commit()
+                        .replace(R.id.container, LocalUserFragment()).commit()
                     true
                 }
 
                 R.id.bottom_git -> {
-                    var gitUsersFragment: Fragment = GitUsersFragment()
+                    var gitUsersFragment: Fragment = RepositoryFragment()
                     //gitUsersFragment.retainInstance = true //команда помогает не разрушать данный фрагмент
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, GitUsersFragment()).commit()
+                        .replace(R.id.container, RepositoryFragment()).commit()
 
                     true
                 }
@@ -59,12 +59,12 @@ class MainActivity : AppCompatActivity(), GitUsersFragment.Controller {
 
     //для получения вложенного фрагмена через контракт
     // наследуемся от GitUsersFragment.Controller
-   override fun onShowUserDetails(user: GitUserEntity) {
+   override fun onShowUserDetails(user: GitHubEntity) {
 
        supportFragmentManager
            .beginTransaction()
            .addToBackStack(null) //для возвращения на предидущий фрагмент
-           .replace(binding.container.id, ItemUserFragment.newInstance(user))
+           .replace(binding.container.id, UserFragment.newInstance(user))
            .commit()
 
    }
