@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.ds.gitapp.databinding.AboutFragmentBinding
+import ru.ds.gitapp.databinding.RepositoryFragmentBinding
 import ru.ds.gitapp.domain.GitHubEntity
 
 
@@ -17,8 +17,8 @@ import ru.ds.gitapp.domain.GitHubEntity
 
 
 class RepositoryFragment : Fragment() {
-    private var _binding: AboutFragmentBinding? = null
-    private val binding: AboutFragmentBinding
+    private var _binding: RepositoryFragmentBinding? = null
+    private val binding: RepositoryFragmentBinding
         get() = _binding!!
 
 
@@ -57,7 +57,7 @@ class RepositoryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = AboutFragmentBinding.inflate(inflater, container, false)
+        _binding = RepositoryFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 

@@ -8,12 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.ds.gitapp.data.local.LocalUserEntity
 import ru.ds.gitapp.data.local.LocalUserRepositoryImp
-import ru.ds.gitapp.databinding.MainFragmentBinding
+import ru.ds.gitapp.databinding.LocalUserFragmentBinding
+
 
 
 class LocalUserFragment : Fragment() {
-    private var _binding: MainFragmentBinding? = null
-    private val binding: MainFragmentBinding
+    private var _binding: LocalUserFragmentBinding? = null
+    private val binding: LocalUserFragmentBinding
         get() = _binding!!
 
     private var adapter: LocalUserAdapter? = null
@@ -27,7 +28,7 @@ class LocalUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = MainFragmentBinding.inflate(inflater, container, false)
+        _binding = LocalUserFragmentBinding.inflate(inflater, container, false)
         return binding.root
     }
 
