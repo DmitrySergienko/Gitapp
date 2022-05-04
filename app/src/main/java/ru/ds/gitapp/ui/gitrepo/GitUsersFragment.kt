@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import ru.ds.gitapp.app
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.AboutFragmentBinding
 
@@ -23,11 +24,8 @@ class GitUsersFragment : Fragment() {
         get() = _binding!!
 
 
-    private val viewModel: GITRepositoryViewModel by viewModels {
-        ReposViewModelFactory(
-            requireActivity().app.gitUserRepo
-        )
-    }
+    private val viewModel: GITRepositoryViewModel by viewModel()
+
 
     // тут прописываем агрумент itemClickCallback для адаптера
     // (слушатель нажатия элемента списка)

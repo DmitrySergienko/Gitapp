@@ -5,10 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import coil.load
-import ru.ds.gitapp.app
 import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.UserListFragmentBinding
 
@@ -59,11 +58,7 @@ class ItemUserFragment : Fragment() {
 
     }
 
-    private val viewModel: UserRepositoryViewModel by viewModels {
-        ReposUserViewModelFactory(
-            requireActivity().app.gitUserRepo
-        )
-    }
+    private val viewModel: UserRepositoryViewModel by viewModel()
     private val adapter = UserAdapter()
 
     override fun onCreateView(
