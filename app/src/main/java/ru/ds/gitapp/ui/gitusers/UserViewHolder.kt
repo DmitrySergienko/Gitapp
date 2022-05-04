@@ -3,8 +3,8 @@ package ru.ds.gitapp.ui.gitusers
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.ItemUserFragmentBinding
+import ru.ds.gitapp.domain.GitHubEntity
 
 
 class UserViewHolder(private val binding: ItemUserFragmentBinding) :
@@ -18,7 +18,7 @@ class UserViewHolder(private val binding: ItemUserFragmentBinding) :
         }
     }
 
-    fun bind(item: GitUserEntity) = with(binding) {
+    fun bind(item: GitHubEntity) = with(binding) {
 
         profileName.text = item.name
         profileHtml.text = item.html_url

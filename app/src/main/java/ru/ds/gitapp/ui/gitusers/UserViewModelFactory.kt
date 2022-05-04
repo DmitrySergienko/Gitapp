@@ -2,11 +2,11 @@ package ru.ds.gitapp.ui.gitusers
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import ru.ds.gitapp.data.remote.GitUserRep
+import ru.ds.gitapp.domain.GitHubRep
 
 
-class ReposUserViewModelFactory(private val repo: GitUserRep) : ViewModelProvider.Factory {
+class UserViewModelFactory(private val repo: GitHubRep) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return UserRepositoryViewModel(repo) as T
+        return UserViewModel(repo) as T
     }
 }

@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import coil.load
-import ru.ds.gitapp.data.remote.GitUserEntity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.ds.gitapp.databinding.UserListFragmentBinding
+import ru.ds.gitapp.domain.GitHubEntity
 
 
-class ItemUserFragment : Fragment() {
+class UserFragment : Fragment() {
     private var _binding: UserListFragmentBinding? = null
     private val binding: UserListFragmentBinding
         get() = _binding!!
@@ -21,20 +21,20 @@ class ItemUserFragment : Fragment() {
         private const val GIT_DATA_KEY = "GIT_DATA_KEY"
 
         @JvmStatic
-        fun newInstance(gitUserEntity: GitUserEntity): ItemUserFragment {
+        fun newInstance(gitHubEntity: GitHubEntity): UserFragment {
 
             //сохраняем аргументы фрагмента в arguments
 
-            val fragment = ItemUserFragment()
+            val fragment = UserFragment()
             val args = Bundle()
-            args.putParcelable(GIT_DATA_KEY, gitUserEntity)
+            args.putParcelable(GIT_DATA_KEY, gitHubEntity)
             fragment.arguments = args
             return fragment
         }
     }
 
     //метод для получения аргумента
-    fun getDataFromArguments(): GitUserEntity {
+    fun getDataFromArguments(): GitHubEntity {
         return arguments?.getParcelable(GIT_DATA_KEY)
             ?: throw IllegalStateException("No argument Name")
     }
@@ -58,7 +58,7 @@ class ItemUserFragment : Fragment() {
 
     }
 
-    private val viewModel: UserRepositoryViewModel by viewModel()
+    private val viewModel: UserViewModel by viewModel()
     private val adapter = UserAdapter()
 
     override fun onCreateView(

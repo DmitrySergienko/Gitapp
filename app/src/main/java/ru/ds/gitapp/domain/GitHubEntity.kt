@@ -1,11 +1,11 @@
-package ru.ds.gitapp.data.remote
+package ru.ds.gitapp.domain
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class GitUserEntity(
+data class GitHubEntity(
 
     val name: String,
     val id: String,
