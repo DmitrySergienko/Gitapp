@@ -1,5 +1,6 @@
-package ru.ds.gitapp.ui.gitusers
+package ru.ds.gitapp.ui.gitrepo
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,21 +9,52 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.ds.gitapp.app
+import ru.ds.gitapp.data.remote.GitUserEntity
 import ru.ds.gitapp.databinding.AboutFragmentBinding
 
 
-class AboutFragment : Fragment() {
+//для использования данного фрагмента в любом другом активити используя контракт необходимо
+// наследоваться от Controller
+
+
+class GitUsersFragment : Fragment() {
     private var _binding: AboutFragmentBinding? = null
     private val binding: AboutFragmentBinding
         get() = _binding!!
+
 
     private val viewModel: GITRepositoryViewModel by viewModels {
         ReposViewModelFactory(
             requireActivity().app.gitUserRepo
         )
     }
-    private val adapter = GitAdapter()
 
+    // тут прописываем агрумент itemClickCallback для адаптера
+    // (слушатель нажатия элемента списка)
+    private val adapter = GitAdapter {
+        // Toast.makeText(requireContext(), it.html_url, Toast.LENGTH_SHORT).show()
+        controller.onShowUserDetails(it)
+
+    /*  requireActivity().supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.container, ItemUserFragment.newInstance(it))
+            .addToBackStack("")
+            .commit()
+       */
+    }
+
+    //интерфейс для передачи данных из фрагмента в активити через контракт
+    interface Controller {
+        fun onShowUserDetails(user: GitUserEntity)
+    }
+    //метод для присоединения активити
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (activity !is Controller) throw
+        IllegalThreadStateException("Activity должна наследоваться от GitUsersFragment.Controller\"")
+
+    }
+    private val controller by lazy { activity as Controller }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,10 +68,9 @@ class AboutFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        recyclerView() //отображение данных в recycler View
         initOutgoingEvents() //метод отправляет event
         initIncomingEvents() //метод получает event
-        recyclerView() //отображение данных в recycler View
-
     }
 
     private fun recyclerView() {
@@ -51,10 +82,9 @@ class AboutFragment : Fragment() {
 
 
     private fun initIncomingEvents() {
-        binding.buttonEnterText.setOnClickListener {
-            val userData = binding.enterEditText.text.toString()
-            viewModel.onShowRepository(userData)
-        }
+        val userData = ""//binding.enterEditText.text.toString()
+        viewModel.onShowRepository(userData)
+
     }
 
     private fun initOutgoingEvents() {
@@ -63,12 +93,8 @@ class AboutFragment : Fragment() {
         }
         viewModel.inProgerss.observe(requireActivity()) {
             if (it) {
-                binding.buttonEnterText.visibility = View.GONE
-                binding.enterEditText.visibility = View.GONE
                 binding.progressBarLayout.visibility = View.VISIBLE
             } else {
-                binding.buttonEnterText.visibility = View.VISIBLE
-                binding.enterEditText.visibility = View.VISIBLE
                 binding.progressBarLayout.visibility = View.GONE
             }
         }
@@ -81,6 +107,6 @@ class AboutFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance() = AboutFragment()
+        fun newInstance() = GitUsersFragment()
     }
 }

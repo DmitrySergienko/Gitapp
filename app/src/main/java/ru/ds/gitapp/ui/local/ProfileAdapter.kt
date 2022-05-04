@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.main
+package ru.ds.gitapp.ui.local
 
 import android.content.Context
 import android.content.Intent
@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ru.ds.gitapp.R
+import ru.ds.gitapp.data.local.ProfileEntity
 import ru.ds.gitapp.databinding.ProfileContentBinding
-import ru.ds.gitapp.domain.local.Profile
 
-class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerView.Adapter<ProfileAdapter.SectorsHolder>() {
+class ProfileAdapter(listArray: ArrayList<ProfileEntity>, context: Context): RecyclerView.Adapter<ProfileAdapter.SectorsHolder>() {
 
     //создаем список элементов
     private val sectorItemList = listArray
@@ -23,18 +23,16 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
         val binding = ProfileContentBinding.bind(item)
 
 
-    fun bind(profile: Profile, context: Context) = with(binding) {
+    fun bind(profile: ProfileEntity, context: Context) = with(binding) {
         profileImageView.setImageResource(profile.idImage)
         profileName.text = profile.name
         profileEmail.text = profile.email
-
-        profileName.text = profile.name
 
         profileContentRoot.setOnClickListener {
             val i = Intent(context, ContentActivity::class.java).apply {
                 putExtra("Name", profileName.text.toString())
                 putExtra("email", profileEmail.text.toString())
-                putExtra("image", profile.idImage)
+                putExtra("image", profile.avatarUrl)
             }
             context.startActivity(i)
         }
@@ -57,7 +55,7 @@ class ProfileAdapter(listArray: ArrayList<Profile>, context: Context): RecyclerV
         return sectorItemList.size
     }
 
-    fun addItemSector(itemSector: Profile){
+    fun addItemSector(itemSector: ProfileEntity){
         sectorItemList.add(itemSector)
          // показывает адаптеру что данные изменились
     }

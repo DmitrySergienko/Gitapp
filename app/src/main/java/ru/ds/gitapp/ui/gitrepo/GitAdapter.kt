@@ -1,10 +1,14 @@
-package ru.ds.gitapp.ui.gitusers
+package ru.ds.gitapp.ui.gitrepo
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.ds.gitapp.domain.remote.GitUserEntity
+import ru.ds.gitapp.data.remote.GitUserEntity
 
-class GitAdapter : RecyclerView.Adapter<GitViewHolder>() {
+
+// настраиваем адаптер для открытия фрагмента
+// создаем itemClickCallback в конструкторе (тоесть мы его перекинем в конструктор как аргумент)
+
+class GitAdapter(private val itemClickCallback: (GitUserEntity) -> Unit) : RecyclerView.Adapter<GitViewHolder>() {
 
     private var data: List<GitUserEntity> = emptyList()
 
@@ -21,7 +25,7 @@ class GitAdapter : RecyclerView.Adapter<GitViewHolder>() {
 
     // получаем отдельный элемент
     override fun onBindViewHolder(holder: GitViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        holder.bind(getItem(position), itemClickCallback)
     }
 
     private fun getItem(pos: Int): GitUserEntity = data[pos]

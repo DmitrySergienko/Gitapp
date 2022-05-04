@@ -1,4 +1,4 @@
-package ru.ds.gitapp.ui.main
+package ru.ds.gitapp.ui.local
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import ru.ds.gitapp.data.local.ProfileEntity
 import ru.ds.gitapp.data.local.UserLocalRepositoryImp
 import ru.ds.gitapp.databinding.MainFragmentBinding
-import ru.ds.gitapp.domain.local.Profile
 
 
 class MainFragment : Fragment() {
@@ -39,7 +39,7 @@ class MainFragment : Fragment() {
     private fun init() {
         binding.apply {
 
-            val list = ArrayList<Profile>()
+            val list = ArrayList<ProfileEntity>()
             list.addAll(userLocalList.getUserFromLocalStorage())
 
             recycleView.hasFixedSize()

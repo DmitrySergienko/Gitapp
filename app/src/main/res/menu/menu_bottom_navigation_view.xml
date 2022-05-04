@@ -2,15 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/bottom_main"
+        android:id="@+id/bottom_local"
         android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/profile"
         app:tooltipText="Description" />
 
-
     <item
-        android:id="@+id/bottom_about"
-        android:icon="@drawable/ic_baseline_airport_shuttle_24"
+        android:id="@+id/bottom_git"
+        android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/settings"
         app:tooltipText="Description" />
 
