@@ -1,35 +1,37 @@
 package ru.ds.gitapp
 
 import android.app.Application
-import android.content.Context
-import org.koin.android.ext.android.get
-import org.koin.android.ext.koin.androidContext
-import org.koin.android.ext.koin.androidLogger
-import org.koin.core.context.startKoin
+import androidx.fragment.app.Fragment
 import ru.ds.gitapp.di.AppDependenciesComponent
 import ru.ds.gitapp.di.DaggerAppDependenciesComponent
-import ru.ds.gitapp.di.appModule
+
 
 //создаем app для централизованного доступа к данным (чтобы не создавать реп в каждом актививи и фрагменте)
 
 class App : Application() {
-
+//создаем хранилище зависимостей AppDependenciesComponent
     lateinit var appDependenciesComponent: AppDependenciesComponent
 
     override fun onCreate() {
         super.onCreate()
-      // startKoin {
-      //     androidLogger()
-      //     androidContext(this@App)
-      //     modules(appModule)
-
-       // }
-appDependenciesComponent = DaggerAppDependenciesComponent.builder().build()
+            //создаем компонент
+        appDependenciesComponent = DaggerAppDependenciesComponent.builder().build()
 
     }
 }
 
-val Context.app:App
+val Fragment.app: App
     get() {
-        return applicationContext as App
+        return requireActivity().application as App
     }
+
+
+/*
+* //для активити
+val Context.app: App
+    get() = applicationContext as App
+
+//для фрагмента
+val Fragment.app: App
+    get() = requireActivity().application as App
+//get()= requireActivity().app*/

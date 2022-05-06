@@ -9,5 +9,6 @@
     <string name="profile">Local Users</string>
     <string name="user_name">ENTER</string>
     <string name="any">JakeWharton</string>
+    <string name="User_name">User</string>
 
 </resources>

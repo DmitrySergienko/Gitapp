@@ -8,12 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.ds.gitapp.data.fake.MockProjectsRepoImpl
-import ru.ds.gitapp.data.retrofit.RetrofitRepositoryImpl
+import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.RepositoryFragmentBinding
 import ru.ds.gitapp.domain.GitHubEntity
 import ru.ds.gitapp.domain.GitHubRep
+import ru.ds.gitapp.ui.gitusers.UserViewModel
+import ru.ds.gitapp.ui.gitusers.UserViewModelFactory
+import javax.inject.Inject
 
 
 //для использования данного фрагмента в любом другом активити используя контракт необходимо
@@ -25,14 +26,14 @@ class RepositoryFragment : Fragment() {
     private val binding: RepositoryFragmentBinding
         get() = _binding!!
 
-    //Koin implementation
-    //private val viewModel: RepositoryViewModel by viewModel()
 
     //Dagger implementation
+    @Inject
     lateinit var gitHubRep: GitHubRep
 
     private val viewModel: RepositoryViewModel by viewModels {
-        ReposViewModelFactory(MockProjectsRepoImpl())
+        //ReposViewModelFactory(gitHubRep)
+        ReposViewModelFactory(gitHubRep)
     }
 
     // тут прописываем агрумент itemClickCallback для адаптера
@@ -60,7 +61,6 @@ class RepositoryFragment : Fragment() {
         if (activity !is Controller) throw
         IllegalThreadStateException("Activity должна наследоваться от GitUsersFragment.Controller\"")
 
-
     }
 
     private val controller by lazy { activity as Controller }
@@ -72,15 +72,20 @@ class RepositoryFragment : Fragment() {
     ): View {
         _binding = RepositoryFragmentBinding.inflate(inflater, container, false)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //Dagger
+        //компонент appDependenciesComponent
+        // в этой активити находит все @inject и генерирует для них зависимости
+
+        app.appDependenciesComponent.inject(this) //dagger injection
 
         recyclerView() //отображение данных в recycler View
         initOutgoingEvents() //метод отправляет event
         initIncomingEvents() //метод получает event
-
 
     }
 
@@ -88,12 +93,16 @@ class RepositoryFragment : Fragment() {
         binding.recycleView.layoutManager = LinearLayoutManager(requireContext())
         adapter.setHasStableIds(true)
         binding.recycleView.adapter = adapter
-
+       // binding.enterEditText.setText(app.appDependenciesComponent.getDefaultUserName())
     }
 
-
     private fun initIncomingEvents() {
-        val userData = ""//binding.enterEditText.text.toString()
+        binding.buttonEnterText.setOnClickListener {
+            val userData = binding.enterEditText.text.toString()
+            viewModel.onShowRepository(userData)
+        }
+
+        val userData = binding.enterEditText.text.toString()
         viewModel.onShowRepository(userData)
 
     }
