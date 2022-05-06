@@ -1,31 +1,36 @@
 package ru.ds.gitapp.data.fake
 
-/*
-class MockProjectsRepoImpl : GitUserRep {
+import io.reactivex.rxjava3.core.Single
+import ru.ds.gitapp.domain.GitHubEntity
+import ru.ds.gitapp.domain.GitHubRep
 
-    override fun getUsers(username: String): Single<List<GitUserEntity>> {
+
+class MockProjectsRepoImpl : GitHubRep {
+
+    override fun getUsers(username: String): Single<List<GitHubEntity>> {
         val mockList = listOf(
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+
+
         )
         return Single.just(mockList)
 
     }
 
-    override fun getUsersRep(username: String): Single<List<GitUserEntity>> {
+    override fun getRepOfUser(username: String): Single<List<GitHubEntity>> {
         val mockList = listOf(
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
-            GitUserEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+            GitHubEntity("0", "!!!","https://github.com/images/error/octocat_happy.gif","login","url","_","_","_","_","_","_","_"),
+
         )
         return Single.just(mockList)
 
     }
-
-
-*/
+    }

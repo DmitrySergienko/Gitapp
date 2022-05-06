@@ -1,6 +1,8 @@
 package ru.ds.gitapp
 
 import android.app.Application
+import android.content.Context
+import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -25,5 +27,9 @@ class App : Application() {
 appDependenciesComponent = DaggerAppDependenciesComponent.builder().build()
 
     }
-
 }
+
+val Context.app:App
+    get() {
+        return applicationContext as App
+    }
