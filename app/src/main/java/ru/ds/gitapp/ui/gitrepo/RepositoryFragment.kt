@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.ds.gitapp.data.retrofit.RetrofitRepositoryImpl
 import ru.ds.gitapp.databinding.RepositoryFragmentBinding
 import ru.ds.gitapp.domain.GitHubEntity
 
@@ -21,9 +23,12 @@ class RepositoryFragment : Fragment() {
     private val binding: RepositoryFragmentBinding
         get() = _binding!!
 
+//Koin implementation
+    //private val viewModel: RepositoryViewModel by viewModel()
 
-    private val viewModel: RepositoryViewModel by viewModel()
-
+    private val viewModel: RepositoryViewModel by viewModels {
+        ReposViewModelFactory(RetrofitRepositoryImpl())
+    }
 
     // тут прописываем агрумент itemClickCallback для адаптера
     // (слушатель нажатия элемента списка)
