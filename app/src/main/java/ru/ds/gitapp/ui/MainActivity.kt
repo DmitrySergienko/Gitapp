@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
     }
 
     //для получения вложенного фрагмена через контракт
-    // наследуемся от GitUsersFragment.Controller
+    // наследуемся от UsersFragment.Controller
    override fun onShowUserDetails(user: GitHubEntity) {
 
        supportFragmentManager

@@ -12,8 +12,6 @@ import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.RepositoryFragmentBinding
 import ru.ds.gitapp.domain.GitHubEntity
 import ru.ds.gitapp.domain.GitHubRep
-import ru.ds.gitapp.ui.gitusers.UserViewModel
-import ru.ds.gitapp.ui.gitusers.UserViewModelFactory
 import javax.inject.Inject
 
 
@@ -32,14 +30,14 @@ class RepositoryFragment : Fragment() {
     lateinit var gitHubRep: GitHubRep
 
     private val viewModel: RepositoryViewModel by viewModels {
-        //ReposViewModelFactory(gitHubRep)
+
         ReposViewModelFactory(gitHubRep)
     }
 
     // тут прописываем агрумент itemClickCallback для адаптера
     // (слушатель нажатия элемента списка)
     private val adapter = RepositoryAdapter {
-        // Toast.makeText(requireContext(), it.html_url, Toast.LENGTH_SHORT).show()
+         //Toast.makeText(requireContext(), it.html_url, Toast.LENGTH_SHORT).show()
         controller.onShowUserDetails(it)
 
         /*  requireActivity().supportFragmentManager

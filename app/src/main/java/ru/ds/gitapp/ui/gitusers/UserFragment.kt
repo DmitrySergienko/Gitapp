@@ -5,17 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import coil.load
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import ru.ds.gitapp.app
 import ru.ds.gitapp.databinding.UserListFragmentBinding
 import ru.ds.gitapp.domain.GitHubEntity
+import ru.ds.gitapp.domain.GitHubRep
+import javax.inject.Inject
 
 
 class UserFragment : Fragment() {
     private var _binding: UserListFragmentBinding? = null
     private val binding: UserListFragmentBinding
         get() = _binding!!
+
+
+
 
     companion object {
         private const val GIT_DATA_KEY = "GIT_DATA_KEY"
@@ -24,7 +30,6 @@ class UserFragment : Fragment() {
         fun newInstance(gitHubEntity: GitHubEntity): UserFragment {
 
             //сохраняем аргументы фрагмента в arguments
-
             val fragment = UserFragment()
             val args = Bundle()
             args.putParcelable(GIT_DATA_KEY, gitHubEntity)
@@ -39,8 +44,18 @@ class UserFragment : Fragment() {
             ?: throw IllegalStateException("No argument Name")
     }
 
+    //Dagger implementation
+    @Inject
+    lateinit var gitHubRep: GitHubRep
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //Dagger
+        //компонент appDependenciesComponent
+        // в этой активити находит все @inject и генерирует для них зависимости
+
+        app.appDependenciesComponent.inject(this) //dagger injection
 
         initData() //заполняем данными user_list_fragment
         initOutgoingEvents() //метод отправляет event
@@ -58,9 +73,10 @@ class UserFragment : Fragment() {
 
     }
 
-    private val viewModel: UserViewModel by viewModel()
+    private val viewModel: UserViewModel by viewModels {
+        UserViewModelFactory(gitHubRep)
+    }
     private val adapter = UserAdapter()
-
 
 
     override fun onCreateView(
