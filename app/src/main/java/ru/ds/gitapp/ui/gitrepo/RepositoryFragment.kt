@@ -89,7 +89,9 @@ class RepositoryFragment : Fragment() {
 
     private fun recyclerView() {
         binding.recycleView.layoutManager = LinearLayoutManager(requireContext())
-        adapter.setHasStableIds(true)
+        if(!adapter.hasObservers()){
+            adapter.setHasStableIds(true)}
+
         binding.recycleView.adapter = adapter
        // binding.enterEditText.setText(app.appDependenciesComponent.getDefaultUserName())
     }

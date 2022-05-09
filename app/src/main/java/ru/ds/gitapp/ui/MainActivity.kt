@@ -12,7 +12,7 @@ import ru.ds.gitapp.ui.gitusers.UserFragment
 import ru.ds.gitapp.ui.local.LocalUserFragment
 
 //для получения вложенного фрагмена через контракт
-    // наследуемся от GitUsersFragment.Controller
+// наследуемся от UsersFragment.Controller
 
 class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
 
@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
 
     //для получения вложенного фрагмена через контракт
     // наследуемся от UsersFragment.Controller
-   override fun onShowUserDetails(user: GitHubEntity) {
+    override fun onShowUserDetails(user: GitHubEntity) {
 
-       supportFragmentManager
-           .beginTransaction()
-           .addToBackStack(null) //для возвращения на предидущий фрагмент
-           .replace(R.id.container, UserFragment.newInstance(user))
-           .commit()
+        supportFragmentManager
+            .beginTransaction()
+            .addToBackStack(null) //для возвращения на предидущий фрагмент
+            .replace(R.id.container, UserFragment.newInstance(user))
+            .commit()
 
-   }
+    }
 }
