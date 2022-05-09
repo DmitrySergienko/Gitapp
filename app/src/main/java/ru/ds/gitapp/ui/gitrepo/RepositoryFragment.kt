@@ -93,17 +93,18 @@ class RepositoryFragment : Fragment() {
             adapter.setHasStableIds(true)}
 
         binding.recycleView.adapter = adapter
-       // binding.enterEditText.setText(app.appDependenciesComponent.getDefaultUserName())
+
     }
 
     private fun initIncomingEvents() {
         binding.buttonEnterText.setOnClickListener {
             val userData = binding.enterEditText.text.toString()
-            viewModel.onShowRepository(userData)
+            viewModel.onShowUserRepository(userData)
+
         }
 
-        val userData = binding.enterEditText.text.toString()
-        viewModel.onShowRepository(userData)
+      val userData = ""
+      viewModel.onShowRepository(userData)
 
     }
 

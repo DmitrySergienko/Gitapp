@@ -30,6 +30,17 @@ class RepositoryViewModel(private val user: GitHubRep) : ViewModel() {
                 }
             )
     }
+    fun onShowUserRepository(username: String) {
+        _inProgerss.postValue(true) // устанавливаем progress Bar
+        compositeDisposable
+            .add(user
+                .getRepOfUser(username)
+                .subscribeBy {
+                    _inProgerss.postValue(false) // убираем progress Bar
+                    _repo.postValue(it)// как только приходит результат отправляем его
+                }
+            )
+    }
 
 
 

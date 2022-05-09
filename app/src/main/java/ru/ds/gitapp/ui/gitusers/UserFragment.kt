@@ -20,9 +20,6 @@ class UserFragment : Fragment() {
     private val binding: UserListFragmentBinding
         get() = _binding!!
 
-
-
-
     companion object {
         private const val GIT_DATA_KEY = "GIT_DATA_KEY"
 

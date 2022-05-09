@@ -23,5 +23,6 @@ class UserViewHolder(private val binding: ItemUserFragmentBinding) :
         profileName.text = item.name
         profileHtml.text = item.html_url
 
+
     }
 }
