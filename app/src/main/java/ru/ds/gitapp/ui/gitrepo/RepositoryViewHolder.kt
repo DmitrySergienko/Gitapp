@@ -26,7 +26,7 @@ class RepositoryViewHolder(private val binding: ItemGitUserBinding) :
         itemGitRepoLogin.text = item.login
         itemGitRepoHtml.text = item.html_url
         avatarImageView.load(item.avatarUrl)
-        val avatar = avatarImageView.load(item.avatarUrl)
+
         root.setOnClickListener {
             listener.invoke(item)
         }

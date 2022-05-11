@@ -12,7 +12,7 @@ import ru.ds.gitapp.ui.gitusers.UserFragment
 import ru.ds.gitapp.ui.local.LocalUserFragment
 
 //для получения вложенного фрагмена через контракт
-    // наследуемся от GitUsersFragment.Controller
+// наследуемся от UsersFragment.Controller
 
 class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
 
@@ -36,17 +36,19 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, LocalUserFragment()).commit()
+                        .replace(R.id.container, LocalUserFragment())
+                        .commit()
                     true
                 }
 
                 R.id.bottom_git -> {
-                    var gitUsersFragment: Fragment = RepositoryFragment()
-                    //gitUsersFragment.retainInstance = true //команда помогает не разрушать данный фрагмент
+                    var repositoryFragment: Fragment = RepositoryFragment()
+                    //repositoryFragment.retainInstance = true //команда помогает не разрушать данный фрагмент
                     supportFragmentManager
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.container, RepositoryFragment()).commit()
+                        .replace(R.id.container, repositoryFragment)
+                        .commit()
 
                     true
                 }
@@ -58,14 +60,14 @@ class MainActivity : AppCompatActivity(), RepositoryFragment.Controller {
     }
 
     //для получения вложенного фрагмена через контракт
-    // наследуемся от GitUsersFragment.Controller
-   override fun onShowUserDetails(user: GitHubEntity) {
+    // наследуемся от UsersFragment.Controller
+    override fun onShowUserDetails(user: GitHubEntity) {
 
-       supportFragmentManager
-           .beginTransaction()
-           .addToBackStack(null) //для возвращения на предидущий фрагмент
-           .replace(binding.container.id, UserFragment.newInstance(user))
-           .commit()
+        supportFragmentManager
+            .beginTransaction()
+            .addToBackStack(null) //для возвращения на предидущий фрагмент
+            .replace(R.id.container, UserFragment.newInstance(user))
+            .commit()
 
-   }
+    }
 }
